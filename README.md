@@ -1,55 +1,42 @@
 # Can We Predict Whether a Central Park Squirrel Ignores Humans?
 
-This project looks at whether we can predict if a Central Park squirrel will ignore humans based on its traits, behavior, location, time of day, and surroundings.
+This was my final project for the CSS Bootcamp.
 
-I completed this project for my CSS Bootcamp final project.
-
-## Research Question
-
-Can we predict whether a squirrel will be recorded as **indifferent to humans** using information about the squirrel and its environment?
+I wanted to see if we could predict whether a Central Park squirrel would ignore humans based on things like its behavior, location, time of day, and the environment around it.
 
 ## Data
 
-I used two datasets from the 2018 Central Park Squirrel Census:
+I used two datasets from the 2018 Central Park Squirrel Census: the [Squirrel Data](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw/about_data) and the [Hectare Data](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Hectare-Data/ej9h-v6g2/about_data).
 
-* [Squirrel Data](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Squirrel-Data/vfnx-vebw/about_data)
-* [Hectare Data](https://data.cityofnewyork.us/Environment/2018-Central-Park-Squirrel-Census-Hectare-Data/ej9h-v6g2/about_data)
+After cleaning and merging them, I ended up with 3,014 squirrel sightings.
 
-After merging the two datasets, I had **3,014 squirrel sightings** for the analysis.
+## What I Did
 
-## Methods
+I first looked at some basic patterns in the data, and then I built two models: logistic regression and random forest.
 
-For this project, I:
+I also compared them with a simple baseline and used five-fold cross-validation to get a better idea of how well the models were actually doing.
 
-* Cleaned and merged the two datasets
-* Explored patterns in squirrel indifference
-* Split the data into training and testing sets
-* Created a baseline model
-* Built a logistic regression model
-* Built a random forest model
-* Used five-fold cross-validation to compare model performance
+I left out variables like `Approaches` and `Runs from` because they already directly describe how a squirrel reacted to humans, so using them would make the prediction a little too easy.
 
-I left out variables that directly described how squirrels reacted to humans, such as `Approaches` and `Runs from`, because including them could make the prediction too easy and lead to target leakage.
+## Results
 
-## Main Results
+Around 48.1% of the squirrels were recorded as indifferent to humans.
 
-* **48.1%** of squirrel sightings were recorded as indifferent to humans.
-* Indifference was more common in the **morning** and among **foraging squirrels**.
-* Baseline accuracy: **51.9%**
-* Logistic regression test accuracy: **59.8%**
-* Random forest test accuracy: **63.5%**
-* Random forest mean cross-validation accuracy: **64.6%**
+I found that squirrels were more often indifferent in the morning, and foraging squirrels were also more likely to be recorded as indifferent.
 
-The random forest performed the best, although its **100% training accuracy** suggests that it was overfitting the training data.
+The baseline accuracy was 51.9%, logistic regression got 59.8%, and random forest did the best at 63.5%. The random forest also had an average cross-validation accuracy of 64.6%.
 
-Overall, squirrel indifference was somewhat predictable, but even the best model still had a lot of room for improvement.
+It did get 100% accuracy on the training data, though, so it was clearly overfitting.
+
+Overall, squirrel indifference was somewhat predictable, but the models still got a lot wrong. Squirrels are apparently not that easy to figure out.
 
 ## Notebook
 
-The full analysis, including the code, visualizations, and model results, can be found here:
+The full analysis, code, graphs, and results are in:
 
 [`squirrel_indifference_analysis.ipynb`](squirrel_indifference_analysis.ipynb)
 
 ## Author
 
 Zifan Yang
+
