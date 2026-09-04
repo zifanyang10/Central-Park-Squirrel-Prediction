@@ -36,6 +36,10 @@ The full analysis, code, graphs, and results are in:
 
 [`squirrel_indifference_analysis.ipynb`](squirrel_indifference_analysis.ipynb)
 
+## Slides
+
+[squirrels_final_project](https://docs.google.com/presentation/d/1vxKHADZ3E2aYeyhUSUrX0cDur0KFlcvkgJHuqlmD8lI/edit?usp=sharing)
+
 ## Author
 
 Zifan Yang
